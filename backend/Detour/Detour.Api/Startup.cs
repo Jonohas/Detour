@@ -49,8 +49,9 @@ public class Startup(IConfiguration configuration)
             FailSafeMaxDuration = TimeSpan.FromSeconds(MappedConfiguration.Cache.FailSafeMaxDurationSeconds),
         });
 
-        // Every live surface is Server-Sent Events. Clients send over plain REST, so there is
-        // one transport in each direction and no second protocol to authenticate.
+        // Registered ahead of the live surface, which is deliberately not built yet — see the
+        // note on convoy live relay in docs/rewrite/C7_APPS_BASELINE_INVENTORY.md. Circles work
+        // without it: positions and presence events are ordinary REST reads and writes.
         services.AddSse();
 
         services.AddRouting(options => options.LowercaseUrls = true);
