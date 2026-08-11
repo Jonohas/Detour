@@ -6,6 +6,8 @@ one identity provider.
 - **What it must do:** [docs/rewrite/BACKEND_FUNCTIONAL_SPEC.md](../docs/rewrite/BACKEND_FUNCTIONAL_SPEC.md)
   — behaviour only, no code, deliberately language-agnostic.
 - **Where the shape came from:** [docs/rewrite/C7_APPS_BASELINE_INVENTORY.md](../docs/rewrite/C7_APPS_BASELINE_INVENTORY.md)
+- **Poking at it by hand:** [bruno/README.md](../bruno/README.md) — a generated
+  Bruno collection covering every endpoint.
 
 ## Running it
 
