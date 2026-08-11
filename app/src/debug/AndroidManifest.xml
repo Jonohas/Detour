@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug-only: the local development stack (docker/dev) speaks plain HTTP, and
+  from API 28 onwards a release build is right to refuse that. Only the debug
+  APK gets the exemption, so nothing shipped can silently fall back to cleartext.
+
+  Reaching the stack from an emulator wants `adb reverse tcp:7501 tcp:7501` and
+  `adb reverse tcp:7580 tcp:7580` rather than 10.0.2.2: Keycloak bakes
+  http://localhost:7580 into the realm and hands out absolute URLs, so the
+  device has to know the identity provider by the same name the API does.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application android:usesCleartextTraffic="true" tools:ignore="UnusedAttribute" />
+</manifest>
